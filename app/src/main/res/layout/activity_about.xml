@@ -1,0 +1,435 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="?android:attr/windowBackground">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar"
+        app:titleTextColor="@android:color/white" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_horizontal"
+            android:padding="24dp">
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="32dp"
+                android:src="@mipmap/ic_launcher"
+                android:contentDescription="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tv_app_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:text="@string/app_name" />
+
+            <TextView
+                android:id="@+id/tv_version"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:textSize="16sp"
+                android:textColor="@android:color/darker_gray" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_section_info"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_author"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_section_opensource"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_github"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="14sp"
+                android:textColor="@color/design_default_color_primary"
+                android:autoLink="web"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingBottom="16dp" />
+
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_section_tech"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_tech_stack"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_tech_stack"
+                android:textSize="14sp"
+                android:lineSpacingExtra="4dp"
+                android:paddingBottom="24dp" />
+
+            <!-- ====== 数据结构 ====== -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_section_data_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_intro"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_model_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_model_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_model_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_model_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp"
+                android:background="@android:color/transparent" />
+
+            <TextView
+                android:id="@+id/tv_help_data_classify_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_classify_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_classify_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_classify_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_chapter_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_chapter_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_chapter_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_chapter_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_picture_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_picture_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_data_picture_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_data_picture_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp" />
+
+            <!-- ====== API 结构 ====== -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_section_api_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_intro"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint_intro"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint1_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint1_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint1_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint1_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint2_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint2_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint2_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint2_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint3_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint3_title"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                android:paddingBottom="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_api_endpoint3_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_api_endpoint3_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="12dp"
+                android:paddingStart="8dp" />
+
+            <!-- ====== 网络层配置 ====== -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_section_network_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_network_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_network_content"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="16dp" />
+
+            <!-- ====== 数据库结构 ====== -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_section_db_title"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:paddingBottom="8dp" />
+
+            <TextView
+                android:id="@+id/tv_help_db_intro"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_db_intro"
+                android:textSize="14sp"
+                android:lineSpacingExtra="3dp"
+                android:paddingBottom="12dp" />
+
+            <TextView
+                android:id="@+id/tv_help_db_table1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_db_table1"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_db_table2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_db_table2"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_db_table3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_db_table3"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_db_table4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_db_table4"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="10dp"
+                android:paddingStart="4dp" />
+
+            <TextView
+                android:id="@+id/tv_help_db_table5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/help_db_table5"
+                android:textSize="13sp"
+                android:fontFamily="monospace"
+                android:lineSpacingExtra="2dp"
+                android:paddingBottom="16dp"
+                android:paddingStart="4dp" />
+
+            <!-- 版权声明 -->
+            <com.google.android.material.divider.MaterialDivider
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginBottom="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/about_copyright"
+                android:textSize="12sp"
+                android:textColor="@android:color/darker_gray"
+                android:gravity="center"
+                android:paddingBottom="16dp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>
