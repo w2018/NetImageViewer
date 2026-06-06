@@ -1,0 +1,37 @@
+<resources>
+    <!-- 主主题 -->
+    <style name="Theme.NetImageViewer" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- 颜色 -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- 状态栏/导航栏 -->
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <!-- 标题栏样式 -->
+        <item name="actionBarStyle">@style/Widget.NetImageViewer.ActionBar</item>
+        <item name="actionBarTheme">@style/ThemeOverlay.MaterialComponents.Dark.ActionBar</item>
+    </style>
+
+    <!-- 自定义ActionBar样式 -->
+    <style name="Widget.NetImageViewer.ActionBar" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:background">@color/colorPrimary</item>
+        <item name="titleTextStyle">@style/TextAppearance.NetImageViewer.ActionBar.Title</item>
+        <item name="subtitleTextStyle">@style/TextAppearance.NetImageViewer.ActionBar.Subtitle</item>
+    </style>
+
+    <!-- 标题文字样式 -->
+    <style name="TextAppearance.NetImageViewer.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+    <style name="TextAppearance.NetImageViewer.ActionBar.Subtitle" parent="TextAppearance.AppCompat.Widget.ActionBar.Subtitle">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <!-- 图片浏览全屏主题 -->
+    <style name="Theme.NetImageViewer.Fullscreen" parent="Theme.NetImageViewer">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+</resources>

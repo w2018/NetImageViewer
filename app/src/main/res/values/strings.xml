@@ -1,0 +1,205 @@
+<resources>
+    <string name="app_name">图图</string>
+
+    <!-- About -->
+    <string name="about_title">关于图图</string>
+    <string name="about_version_format" formatted="false">版本 %s (Build %d)</string>
+    <string name="about_author_text">作者：w2018</string>
+    <string name="about_github_url">https://github.com/w2018/NetImageViewer</string>
+    <string name="about_section_info">基本信息</string>
+    <string name="about_section_tech">技术栈</string>
+    <string name="about_tech_stack">Android + Java + Room + Retrofit + OkHttp + Glide + PhotoView</string>
+    <string name="about_section_opensource">开源许可</string>
+    <string name="about_copyright">Copyright © 2024 w2018. All rights reserved.</string>
+
+    <!-- Help - Data Structure -->
+    <string name="help_title">帮助</string>
+    <string name="help_section_data_title">数据结构</string>
+    <string name="help_data_intro">应用采用三级分类体系：分类→章节→图片，数据通过统一响应体 ApiResponse&lt;T&gt; 封装返回。</string>
+
+    <string name="help_data_model_title">▎统一响应体 ApiResponse&lt;T&gt;</string>
+    <string name="help_data_model_content" formatted="false">字段说明：
+  · code    - int，状态码（200 表示成功）
+  · msg     - String，响应消息
+  · data    - T，泛型数据体
+  · isSuccess() - code == 200 时返回 true
+
+包路径：com.operit.netimageviewer.data.model.ApiResponse</string>
+
+    <string name="help_data_classify_title">▎一级分类：ClassifyItem</string>
+    <string name="help_data_classify_content" formatted="false">字段说明：
+  · id     - int，分类 ID（主键）
+  · title  - String，分类名称
+  · cover  - String，封面图片 URL
+
+作用：表示图片分类目录（如"动漫"、"风景"等）</string>
+
+    <string name="help_data_chapter_title">▎二级章节：ChapterItem</string>
+    <string name="help_data_chapter_content" formatted="false">字段说明：
+  · id        - int，章节 ID（主键）
+  · title     - String，章节名称
+  · cover     - String，封面图片 URL
+  · pageCount - int，页数
+
+作用：表示分类下的具体章节/专辑</string>
+
+    <string name="help_data_picture_title">▎三级图片：PictureItem</string>
+    <string name="help_data_picture_content" formatted="false">字段说明：
+  · id    - int，图片 ID（主键）
+  · url   - String，图片链接
+  · order - int，图片排序序号
+
+作用：表示章节内的单张图片，按 order 升序排列</string>
+
+    <!-- Help - API Structure -->
+    <string name="help_section_api_title">API 结构</string>
+    <string name="help_api_intro">所有 API 端点通过 Retrofit 请求服务端 api.php，支持用户自定义 base URL。
+网络层位于 com.operit.netimageviewer.data.remote 包。</string>
+    <string name="help_api_endpoint_intro" formatted="false">请求方式：全部为 GET 请求
+基础路径：{baseURL}/api.php
+
+</string>
+
+    <string name="help_api_endpoint1_title" formatted="false">端点 1：获取分类列表</string>
+    <string name="help_api_endpoint1_content" formatted="false">▸ GET {baseURL}/api.php?action=classifyList
+▸ 参数：无
+▸ 返回：Call&lt;ApiResponse&lt;List&lt;ClassifyItem&gt;&gt;&gt;
+▸ 说明：获取所有一级分类</string>
+
+    <string name="help_api_endpoint2_title" formatted="false">端点 2：获取章节列表</string>
+    <string name="help_api_endpoint2_content" formatted="false">▸ GET {baseURL}/api.php?action=chapterList&amp;id={classifyId}
+▸ 参数：id - 分类 ID（int）
+▸ 返回：Call&lt;ApiResponse&lt;List&lt;ChapterItem&gt;&gt;&gt;
+▸ 说明：获取指定分类下的章节列表</string>
+
+    <string name="help_api_endpoint3_title" formatted="false">端点 3：获取图片列表</string>
+    <string name="help_api_endpoint3_content" formatted="false">▸ GET {baseURL}/api.php?action=pictureList&amp;id={chapterId}
+▸ 参数：id - 章节 ID（int）
+▸ 返回：Call&lt;ApiResponse&lt;List&lt;PictureItem&gt;&gt;&gt;
+▸ 说明：获取指定章节下的图片列表</string>
+
+    <!-- Help - Network Layer -->
+    <string name="help_section_network_title">网络层配置</string>
+    <string name="help_network_content" formatted="false">OkHttp 配置：
+  · 连接超时：15 秒
+  · 读取超时：30 秒
+  · 写入超时：30 秒
+  · 缓存目录：http_cache（10MB）
+  · 日志级别：HttpLoggingInterceptor.Level.BODY
+
+Retrofit 配置：
+  · 双检锁单例模式（RetrofitClient）
+  · 动态 baseURL（通过 SharedPreferences 存储）
+  · Gson 序列化/反序列化
+  · @SerializedName 注解绑定 JSON 字段</string>
+
+    <!-- Help - Database Structure -->
+    <string name="help_section_db_title">数据库结构</string>
+    <string name="help_db_intro" formatted="false">本地使用 Room 数据库（net_image_viewer_db，version=2）
+存储缓存、浏览历史和收藏数据。位于 data.local 包。
+
+</string>
+
+    <string name="help_db_table1" formatted="false">表 1：classify_cache（分类缓存）
+  · id    - int，主键，分类 ID
+  · title - String，分类名称
+  · cover - String，封面 URL
+  作用：缓存服务端返回的分类列表</string>
+
+    <string name="help_db_table2" formatted="false">表 2：chapter_cache（章节缓存）
+  · id         - int，主键，章节 ID
+  · classifyId - int，所属分类 ID
+  · title      - String，章节名称
+  · cover      - String，封面 URL
+  · pageCount  - int，页数
+  作用：缓存服务端返回的章节列表</string>
+
+    <string name="help_db_table3" formatted="false">表 3：picture_cache（图片缓存）
+  · id         - int，主键，图片 ID
+  · chapterId  - int，所属章节 ID
+  · url        - String，图片链接
+  · orderIndex - int，排序序号
+  作用：缓存服务端返回的图片列表</string>
+
+    <string name="help_db_table4" formatted="false">表 4：browse_history（浏览历史）
+  · id           - int，自增主键
+  · chapterId    - int，唯一索引，章节 ID
+  · chapterTitle - String，章节标题
+  · coverUrl     - String，封面 URL
+  · browseTime   - long，浏览时间戳
+  作用：记录用户浏览过的章节</string>
+
+    <string name="help_db_table5" formatted="false">表 5：favorites（收藏）
+  · id           - int，自增主键
+  · chapterId    - int，章节 ID
+  · chapterTitle - String，章节标题
+  · coverUrl     - String，封面 URL
+  · favoriteTime - long，收藏时间戳
+  · note         - String，备注
+  作用：用户收藏的章节</string>
+
+    <!-- Cache -->
+    <string name="cache_title">缓存管理</string>
+    <string name="cache_current_size">当前缓存大小</string>
+    <string name="cache_clean">清理缓存</string>
+
+    <!-- Help (general) -->
+    <string name="help_section_db_title_">数据库说明</string>
+    <string name="help_db_intro_">本地使用 Room 数据库存储浏览历史和收藏记录。</string>
+    <string name="help_section_api_title_">API 说明</string>
+    <string name="help_api_intro_">支持自定义 API 地址，配置后可从指定接口获取图片数据。</string>
+
+    <!-- History &amp; Favorite -->
+    <string name="history_favorite_title">历史与收藏</string>
+    <string name="tab_history">浏览历史</string>
+    <string name="tab_favorites">我的收藏</string>
+    <string name="history_cleared">历史记录已清空</string>
+    <string name="favorites_cleared">收藏已清空</string>
+    <string name="settings_url_empty_error">请输入服务器地址</string>
+
+    <!-- Settings -->
+    <string name="settings_title">设置</string>
+    <string name="settings_url_hint">请输入API服务器地址</string>
+    <string name="settings_save">保存</string>
+    <string name="settings_reset">重置</string>
+    <string name="settings_test">测试连接</string>
+    <string name="settings_current_url">当前地址：%s</string>
+    <string name="settings_save_success">保存成功，正在刷新数据…</string>
+    <string name="settings_reset_success">已重置为默认地址</string>
+    <string name="settings_test_success">连接测试成功</string>
+    <string name="settings_test_failed">连接测试失败</string>
+    <string name="settings_testing">正在测试连接…</string>
+    <string name="settings_test_url_empty">请先输入地址再测试</string>
+
+    <!-- Refresh hints -->
+    <string name="refresh_success">刷新成功</string>
+    <string name="refresh_failed">刷新失败</string>
+
+    <!-- Menu -->
+    <string name="menu_settings">设置</string>
+    <string name="menu_cache">缓存</string>
+    <string name="menu_history_favorite">历史与收藏</string>
+    <string name="menu_help">帮助</string>
+    <string name="menu_about">关于</string>
+
+    <!-- Favorite -->
+    <string name="action_add_favorite">收藏</string>
+    <string name="action_remove_favorite">取消收藏</string>
+
+    <!-- History Delete -->
+    <string name="history_edit">编辑</string>
+    <string name="history_cancel">取消</string>
+    <string name="history_select_all">全选</string>
+    <string name="history_delete_selected">删除</string>
+    <string name="history_delete_confirm_title">确认删除</string>
+    <string name="history_delete_confirm_message">确定要删除选中的 %d 条记录吗？</string>
+    <string name="history_delete_success">已删除 %d 条记录</string>
+    <string name="history_delete_item">删除</string>
+    <string name="history_empty">暂无记录</string>
+
+    <!-- History Delete (supplemental) -->
+    <string name="history_cancel_select_all">取消全选</string>
+    <string name="history_delete_selected_with_count" formatted="false">删除(%d)</string>
+    <string name="history_clear_all_message">确定要清空所有浏览历史吗？</string>
+    <string name="confirm_delete">确定</string>
+</resources>

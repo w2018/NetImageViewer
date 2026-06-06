@@ -1,0 +1,111 @@
+# ============================================================
+# 图图 NetImageViewer — 编译环境固化清单 (BUILD ENV LOCK)
+# ============================================================
+# 警告：此文件所列环境为项目可编译的唯一已知基准。
+# 未经 w2018 明确确认，绝对禁止升级或修改以下任何组件！
+# 锁定日期：2026-06-03 18:11 CST
+# 最后验证：BUILD SUCCESSFUL (35 tasks, 14s)
+# ============================================================
+
+locked: true
+locked_by: w2018
+locked_at: 2026-06-03T18:11:51+08:00
+project: NetImageViewer (图图)
+repo: https://github.com/w2018/NetImageViewer
+
+# --- 操作系统 ---
+os:
+  kernel: Linux 5.4.86-qgki-gc7d7ad5aea6b-dirty
+  arch: aarch64
+  distro: Ubuntu 24.04 (Noble Numbat)
+
+# --- Java ---
+java:
+  distribution: OpenJDK
+  version: "17.0.19"
+  build_date: 2026-04-21
+  package: openjdk-17-jdk-headless:arm64
+  home: /usr/lib/jvm/java-17-openjdk-arm64
+  binary: ELF 64-bit LSB pie, ARM aarch64
+  description: "绝对禁止升级到 Java 21+，AGP 8.7.x 最高兼容 Java 17"
+
+# --- Gradle ---
+gradle:
+  version: "8.9"
+  distribution_url: https://services.gradle.org/distributions/gradle-8.9-bin.zip
+  wrapper_jar_md5: 00fbfe071a292b2cf0bf1613035eef10
+  kotlin: 1.9.23
+  groovy: 3.0.21
+  description: "禁止手动替换 wrapper jar 或升级到 Gradle 8.10+"
+
+# --- Android SDK ---
+android_sdk:
+  root: /usr/lib/android-sdk
+  platform_tools_version: "34.0.4"
+  adb_version: "1.0.41"
+  adb_path: /usr/lib/android-sdk/platform-tools/adb
+  adb_md5: 81decea5a87dd029133ccbccf57d235c
+  adb_size: 676728
+  compile_sdk: 34
+  platforms_dir: /usr/lib/android-sdk/platforms/
+  build_tools_dir: /usr/lib/android-sdk/build-tools/
+
+# --- AAPT2 (关键：QEMU-wrapped，非原生 x86_64) ---
+aapt2:
+  path: /root/Android/build-tools/34.0.0/aapt2
+  version: "34.0.0"
+  sha256: f9b083401aa6d394c8776505f336af303f1d2e5f041716720e6b0fceeeca7c30
+  md5: b6abe82049e2f875c41f15e9524a4ceb
+  type: QEMU-wrapped (ARM binary, runs emulated aarch64 AAPT2 on this host)
+  description: "核心组件！AGP 8.7.x 自带的 x86_64 aapt2 在 ARM 上不可执行，
+               必须使用此 QEMU 包装版。绝对禁止替换或升级！"
+
+# --- Gradle Properties ---
+gradle_properties:
+  path: /root/work/repo/gradle.properties
+  contents:
+    org.gradle.jvmargs: "-Xmx2048m -Dfile.encoding=UTF-8"
+    org.gradle.parallel: "true"
+    org.gradle.caching: "true"
+    android.useAndroidX: "true"
+    android.nonTransitiveRClass: "true"
+    org.gradle.configureondemand: "false"
+    android.aapt2FromMavenOverride: /root/Android/build-tools/34.0.0/aapt2
+  description: "JVM 堆必须 >= 2048m；aapt2FromMavenOverride 是编译必需的"
+
+# --- Android Gradle Plugin ---
+agp:
+  version: "8.7.3"
+  declaration: root build.gradle.kts
+  description: "AGP 8.7.x 是最后一个支持 JDK 17 的主要版本线"
+
+# --- 项目构建配置 ---
+project_config:
+  compileSdk: 34
+  minSdk: 24
+  targetSdk: 34
+  buildToolsVersion: "34.0.0"
+  namespace: com.operit.netimageviewer
+  applicationId: com.operit.netimageviewer
+  versionName: "1.1"
+  versionCode: 2
+  viewBinding: true
+  sourceCompatibility: JavaVersion.VERSION_1_8
+  targetCompatibility: JavaVersion.VERSION_1_8
+
+# --- 目标设备 ---
+device:
+  name: emulator-5554
+  type: Android Emulator (ARM)
+
+# --- 禁止事项 ---
+prohibited:
+  - 禁止 apt upgrade / apt dist-upgrade 升级任何 SDK 或 Java 包
+  - 禁止修改 gradle-wrapper.properties 中的 distributionUrl
+  - 禁止替换 gradle-wrapper.jar
+  - 禁止升级 AGP 版本（root build.gradle.kts）
+  - 禁止修改 compileSdk / targetSdk 版本
+  - 禁止删除或替换 /root/Android/build-tools/34.0.0/aapt2
+  - 禁止修改 gradle.properties 中的 android.aapt2FromMavenOverride
+  - 禁止安装其他版本的 build-tools 覆盖现有配置
+  - 禁止使用 sdkmanager 更新任何组件

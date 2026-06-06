@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 网络权限 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.NetImageViewer"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+
+        <!-- 首页：一级分类列表 -->
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:exported="true"
+            android:theme="@style/Theme.NetImageViewer">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- 章节列表 -->
+        <activity
+            android:name=".ui.chapter.ChapterActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer" />
+
+        <!-- 图片浏览 -->
+        <activity
+            android:name=".ui.picture.PictureActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer.Fullscreen" />
+
+        <!-- 设置 -->
+        <activity
+            android:name=".ui.settings.SettingsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer" />
+
+        <!-- 缓存管理 -->
+        <activity
+            android:name=".ui.cache.CacheManagerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer" />
+
+        <!-- 历史与收藏 -->
+        <activity
+            android:name=".ui.history.HistoryFavoriteActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer" />
+
+        <!-- 帮助 -->
+        <activity
+            android:name=".ui.help.HelpActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer" />
+
+        <!-- 关于 -->
+        <activity
+            android:name=".ui.about.AboutActivity"
+            android:exported="false"
+            android:theme="@style/Theme.NetImageViewer" />
+
+    </application>
+</manifest>
