@@ -1,7 +1,7 @@
 <?php
 /**
  * 网络图集 API v2.0
- * 部署到 http://115.190.224.6/api.php
+ * 部署到 /image/api.php
  * 
  * 三级接口（与 App 签名一致）：
  *   GET /api.php?action=classifyList             一级分类列表
